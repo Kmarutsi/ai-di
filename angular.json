@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "customer-360-web": "apps/customer-360-web",
+    "customer-360-web-e2e": "apps/customer-360-web-e2e"
+  }
+}
