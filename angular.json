@@ -2,6 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "c360-auth": "libs/c360/auth",
     "customer-360-web": "apps/customer-360-web",
     "customer-360-web-e2e": "apps/customer-360-web-e2e"
   }
