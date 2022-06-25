@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "feature",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Library name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "app": {
+      "type": "string",
+      "description": "Application name",
+      "default": "customer-360-web",
+      "x-prompt": {
+        "message": "What is the name of the application?",
+        "type": "list",
+        "items": [{
+          "label": "Customer 360 Web",
+          "value": "customer-360-web"
+        }]
+      }
+    },
+    "directory": {
+      "type": "string",
+      "description": "A directory where the feature is placed",
+      "default": "c360",
+      "x-prompt": {
+        "message": "Where would you like to put the feature library?",
+        "type": "list",
+        "items": [
+          {
+            "value": "c360",
+            "label": "Customer 360"
+          },
+          {
+            "value": "shared",
+            "label": "Shared"
+          }
+        ]
+      }
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of feature to be generated",
+      "default": "all",
+      "x-prompt": {
+        "message": "What type of feature library do you want created?",
+        "type": "list",
+        "items": [
+          {
+            "value": "all",
+            "label": "Feature + Data Access"
+          },
+          {
+            "value": "feature",
+            "label": "Feature Only"
+          },
+          {
+            "value": "data-access",
+            "label": "Data Access Only"
+          }
+        ]
+      }
+    },
+    "prefix": {
+      "type": "string",
+      "format": "html-selector",
+      "description": "The prefix to apply to generated selectors.",
+      "default": "rcms",
+      "alias": "p",
+      "x-prompt": "What prefix would you like to use for the feature library?"
+    },
+    "routing": {
+      "type": "boolean",
+      "default": true,
+      "description": "Add router configuration. See lazy for more information.",
+      "x-prompt": "Would you like to enable Routing?"
+    },
+    "lazy": {
+      "type": "boolean",
+      "default": true,
+      "description": "Add RouterModule.forChild when set to true, and a simple array of routes when set to false.",
+      "x-prompt": "Would you like to enable Lazy Loading?"
+    },
+    "tags": {
+      "type": "string",
+      "description": "Add tags to the library (used for linting)",
+      "default": "scope:shared,type:feature"
+    },
+    "unitTestRunner": {
+      "type": "string",
+      "enum": ["karma", "jest", "none"],
+      "description": "Test runner to use for unit tests",
+      "default": "jest"
+    },
+    "strict": {
+      "type": "boolean",
+      "description": "Whether to enable `tsconfig` strict mode or not.",
+      "default": false
+    }
+  },
+  "required": ["name", "app", "directory", "type", "prefix", "tags", "unitTestRunner"]
+}
